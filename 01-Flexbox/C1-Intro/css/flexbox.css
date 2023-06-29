@@ -1,0 +1,11 @@
+/*Hoja de estilos que emplea Flexbox para formatear elementos internos de un container. */
+
+.headerPrincipal .container {
+    display: flex; /*Se establece que el contenedor del Header principal utilice una alineación flexbox; donde los elementos se colocarán uno tras otro*/
+    align-items: center;
+    justify-content: space-between; /*Coloca un espaciado entre los elementos dentro del contenedor*/
+}
+
+.headerPrincipal-nav {
+    display: flex; /*Hace que los elementos de la navbar se alineen uno tras otro. */
+}

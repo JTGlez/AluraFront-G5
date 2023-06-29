@@ -1,0 +1,146 @@
+/*Hoja de estilos que emplea Flexbox para formatear elementos internos de un container. */
+
+/*Flex coloca los elementos por defecto uno detrás del otro en un estilo unidimensional. */
+
+.headerPrincipal .container {
+    display: flex; /*Se establece que el contenedor del Header principal utilice una alineación flexbox; donde los elementos se colocarán uno tras otro*/
+    align-items: center;
+    justify-content: space-between; /*Coloca un espaciado entre los elementos dentro del contenedor*/
+}
+
+.headerPrincipal-nav {
+    display: flex; /*Hace que los elementos de la navbar se alineen uno tras otro. */
+}
+
+/*Sobreescribimos el absolute, y se indica un width de 20% para que, se distribuyan los elementos en columnas al aplicar wrap. */
+.contenidoPrincipal-cursos-link{
+    display: flex;
+    width: 23%;
+}
+
+.contenidoPrincipal-cursos{
+    display: flex; /*Con un display absolute: flex hace que se genere un superposicionamiento total. Esto debe arreglarse eliminando el display: absolute del contenedor.*/
+    flex-wrap: wrap;
+}
+
+.videoSobre .container{
+    display: flex;
+}
+
+.videoSobre-sobre {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.videoSobre-video{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+
+
+/*Estilos de la sección de cursos en el footer*/
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-direction: column; /*Indicamos que los elementos se ubiquen de un lado al otro en forma de columnas*/
+    height: 255px; /*Limita el tamaño del footer, pero no se indica todavía que colapse a la siguiente columna*/
+    flex-wrap: wrap; /*Por cada 250px, se rellenará la siguiente columna y no hacen overflow*/
+}
+
+/*Se debe especificar el container al que se aplicará flexbox*/
+.rodapePrincipal-patrocinadores .container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+/*Se debe especificar el container al que se aplicará flexbox*/
+.rodapePrincipal-patrocinadores-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /*El espacio entre elementos no funcionará, ya que el navegador interpreta que no hay espacio suficiente.*/
+    width: 70%; /*Establecemos que 3/4 del footer corresponderá a esta lista*/
+    margin-right: 5%;
+    
+}
+
+.rodapePrincipal-contatoForm{
+    width: 25%;
+}
+
+
+.rodapePrincipal-contatoForm-fieldset{
+    display: flex;
+}
+
+
+/*CSS responsive para móviles*/
+@media (max-width: 760px){
+
+    .headerPrincipal .container {
+        flex-direction: column;
+        align-items: initial; /*Elementos alineados de punta en punta sobre el eje Y (al ser column)*/
+    }
+    
+    .headerPrincipal-nav {
+        flex-direction: column;
+        text-align: center; /*Se alinea todo el contenido*/
+    }
+    
+    /*Sobreescribimos el absolute, y se indica un width de 100% para que se distribuyan los elementos (todos los links) en todo el espacio mobile. */
+    .contenidoPrincipal-cursos-link{
+        display: flex;
+        width: 100%;
+    }
+    
+    .contenidoPrincipal-cursos{
+        flex-direction: column; /*Con un display absolute: flex hace que se genere un superposicionamiento total. Esto debe arreglarse eliminando el display: absolute del contenedor.*/
+        
+    }
+    
+    /*Estilos de la sección de cursos responsive en el footer*/
+    .rodapePrincipal-navMap-list {
+        height: auto;
+        flex-wrap: nowrap; /*Se elimina el wrap al no ser necesario en layout mobile*/
+    }
+    
+    
+    /*Se debe especificar el container al que se aplicará flexbox*/
+    .rodapePrincipal-patrocinadores .container{
+        flex-direction: column;
+        
+        
+    }
+    
+    .rodapePrincipal-contatoForm{
+        width: 100%;
+    }
+    
+    /*Ancho del 100% veritucal y se centra el form*/
+    .rodapePrincipal-contatoForm-fieldset{
+        justify-content: center;
+    }
+    
+    
+    /*Se debe especificar el container al que se aplicará flexbox*/
+    .rodapePrincipal-patrocinadores-list{
+        align-items: center; /*Centra los logos de patrocinadores*/
+        width: 100%; /*Establecemos que 3/4 del footer corresponderá a esta lista*/
+        margin: 0;
+    
+        
+    }
+
+    .headerPrincipal-nav-link-app {
+        order: -1; /*Modifica el order para que la primera opción sea Nuestra App*/
+    }
+
+    .videoSobre .container{
+        flex-direction: column;
+    }
+
+
+}
